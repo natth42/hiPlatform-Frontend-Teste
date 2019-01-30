@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { fetchSpotifyData } from '../../actions/index';
+import { fetchSpotifyData, errorAlert, clearAlert } from '../../actions/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import {
+    Alert,
     Form,
     FormGroup,
     Label,
@@ -20,19 +21,31 @@ class SearchBar extends React.Component {
     
     search(e){
         e.preventDefault();
-        if(e.target.search.value){
+        if(e.target.search.value && e.target.search.value !== ' '){
             const values = {
                 q: e.target.search.value,
                 type: 'artist'
             };
             this.props.fetchSpotifyData(values);
+        }else{
+            this.props.errorAlert('Para fazer uma pesquisa é necessário digitar um nome no campo!');
+            setTimeout(() => this.props.clearAlert(), 3000);
         }
-        
     }
 
     render() {
+        const { alert } = this.props;
       return (
         <Fragment>
+            {
+                alert.showMessage
+                &&
+                <div className="space-top space-sides center">
+                    <Alert color="danger">
+                        { alert.message }
+                    </Alert>
+                </div>
+            }
             <Form onSubmit={this.search}>
             <FormGroup className="space-top space-sides center">
                 <Label for="search" hidden>Procurar</Label>
@@ -55,13 +68,18 @@ class SearchBar extends React.Component {
 
 const mapStateToProps = state => {
     return {
-      fetchSpotifyData
+      fetchSpotifyData,
+      alert: state.alertReducer,
+      errorAlert,
+      clearAlert
     };
   };
   
   const mapDispatchToProps = (dispatch) => {
     return {
-      fetchSpotifyData: (params) => dispatch(fetchSpotifyData(params))
+      fetchSpotifyData: (params) => dispatch(fetchSpotifyData(params)),
+      errorAlert: (message) => dispatch(errorAlert(message)),
+      clearAlert: () => dispatch(clearAlert())
     };
   };
   
