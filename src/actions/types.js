@@ -3,3 +3,4 @@ export const GET_TOKEN = 'GET_TOKEN';
 export const ALERT_SUCCESS = 'ALERT_SUCCESS';
 export const ALERT_ERROR = 'ALERT_ERROR';
 export const ALERT_CLEAR = 'ALERT_CLEAR';
+export const SET_TYPE_FILTER = 'SET_TYPE_FILTER';

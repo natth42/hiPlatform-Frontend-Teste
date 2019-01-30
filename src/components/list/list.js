@@ -1,40 +1,41 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {
-    Table
+    Table,
+    Container,
+    Row,
+    Col
 } from 'reactstrap';
+import ListHeader from '../list-header/listHeader';
 
 const List = () => {
   return (
-    <Table className="space-sides" borderless responsive>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+    <Fragment>
+    <Table role="table" hover responsive>
+    <thead>
+      <tr>
+        <ListHeader />
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+            <td>
+              <Container>
+                <Row>
+                  <Col xs="auto">
+                  fota
+                  </Col>
+                  <Col>
+                    Item 1
+                  </Col>
+                </Row>
+              </Container>
+            </td>
+            <td>-</td>
+            <td>-</td>
           </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </Table>
+    </tbody>
+  </Table>
+    </Fragment>
   );
 }
 

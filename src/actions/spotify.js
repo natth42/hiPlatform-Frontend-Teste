@@ -3,10 +3,10 @@ import axios from 'axios';
 
 const apiUrlSpotify = 'https://api.spotify.com/v1';
 
-export const fetchData = (data) => {
+export const fetchData = (spotifyData) => {
   return {
     type: FETCH_SPOTIFY_DATA,
-    data
+    spotifyData
   }
 };
 
@@ -19,7 +19,6 @@ export const fetchSpotifyData = (params) => {
       params
     })
       .then((response) => {
-        console.log(response.data);
         dispatch(fetchData(response.data))
       })
       .catch((error) => {

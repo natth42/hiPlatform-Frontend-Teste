@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import Header from '../header/header';
 import SearchBar from '../SearchBar/searchBar';
 import List from '../list/list';
+import {
+  Container
+} from 'reactstrap';
 
 class Home extends React.Component {
   componentDidMount() {
@@ -15,9 +18,13 @@ class Home extends React.Component {
   render() {
     return (
       <Fragment>
-        <Header />  
-        <SearchBar />
-        <List />
+        <Header />
+        <Container> 
+          <SearchBar />
+        </Container> 
+        <Container>
+          <List />
+        </Container>
       </Fragment>
     );
   }

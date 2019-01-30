@@ -3,12 +3,12 @@
 }
 
 .space-top{
-    padding-top: 2rem;
+    margin-top: 2rem;
 }
 
 .space-sides{
-    padding-left: 2rem;
-    padding-right: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 .center{
@@ -23,4 +23,37 @@
     padding-left: 10px;
     padding-right: 10px;
     margin-left: 1rem;
+}
+
+.link, .link:hover {
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+}
+
+.link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #1db954;
+    transition: width .3s;
+}
+
+.link:hover::after {
+    width: 100%;
+}
+
+.link-active::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #1db954;
+    width: 100%;
+}
+
+/* List */
+.column{
+    flex-direction: column;
 }

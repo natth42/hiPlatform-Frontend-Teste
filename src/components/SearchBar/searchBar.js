@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { fetchSpotifyData, errorAlert, clearAlert } from '../../actions/index';
+import { fetchSpotifyData, errorAlert, clearAlert, setFilterType } from '../../actions/index';
+import { Link } from '../link/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -34,7 +35,8 @@ class SearchBar extends React.Component {
     }
 
     render() {
-        const { alert } = this.props;
+        const { alert, typeFilter, setFilterType } = this.props;
+        console.log(this.props.typeFilter, 'typeFilter');
       return (
         <Fragment>
             {
@@ -47,7 +49,7 @@ class SearchBar extends React.Component {
                 </div>
             }
             <Form onSubmit={this.search}>
-            <FormGroup className="space-top space-sides center">
+            <FormGroup className="space-top center">
                 <Label for="search" hidden>Procurar</Label>
                 <Input className="input" type="text" name="search" id="search" placeholder="Procurar por nome" />
                 <Button type="submit" className="search-button" color="success">
@@ -56,10 +58,32 @@ class SearchBar extends React.Component {
             </FormGroup>
             </Form>
             <div className="center">
-                <a className="space-sides">Artista</a>
-                <a className="space-sides">Album</a>
-                <a className="space-sides">Música</a>
+                <Link active={
+                    'artist' ===
+                    typeFilter
+                  }
+                  onClick={() =>
+                    setFilterType('artist')
+                  } text={'Artista'}></Link>
+                <Link active={
+                    'album' ===
+                    typeFilter
+                  }
+                  onClick={() =>
+                    setFilterType('album')
+                  }
+                  text={'Album'}></Link>
+                <Link active={
+                    'track' ===
+                    typeFilter
+                  }
+                  onClick={() =>
+                    setFilterType('track')
+                  }
+                  text={'Música'}
+                  ></Link>
             </div>
+            <div className="space-top"></div>
         </Fragment>
       );
     }
@@ -71,7 +95,9 @@ const mapStateToProps = state => {
       fetchSpotifyData,
       alert: state.alertReducer,
       errorAlert,
-      clearAlert
+      clearAlert,
+      typeFilter: state.typeFilterReducer,
+      setFilterType
     };
   };
   
@@ -79,7 +105,8 @@ const mapStateToProps = state => {
     return {
       fetchSpotifyData: (params) => dispatch(fetchSpotifyData(params)),
       errorAlert: (message) => dispatch(errorAlert(message)),
-      clearAlert: () => dispatch(clearAlert())
+      clearAlert: () => dispatch(clearAlert()),
+      setFilterType: (filter) => dispatch(setFilterType(filter))
     };
   };
   
