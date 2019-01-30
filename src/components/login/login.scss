@@ -1,0 +1,20 @@
+.title-position {
+    flex-direction: column;
+    text-align: center;
+}
+
+.buttonSpotify {
+    border-color: white;
+    background-color: #1db954;
+    border-radius: 3rem;
+}
+
+.buttonSpotify:hover {
+    border-color: white;
+    background-color: #1ED760;
+}
+
+.buttonSpotify:active {
+    border-color: white;
+    background-color: #1ED760;
+}

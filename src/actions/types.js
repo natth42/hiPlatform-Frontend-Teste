@@ -1,0 +1,3 @@
+export const FETCH_SPOTIFY_DATA = 'FETCH_SPOTIFY_DATA';
+
+export const GET_TOKEN = 'GET_TOKEN';

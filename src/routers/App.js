@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import Login from '../components/login/login';
 import Home from '../components/home/home';
 import PageNoteFound from '../components/pageNotFound/pageNotFound';
 
@@ -18,7 +19,8 @@ class AppRouter extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/" component={Home} exact={true} />
+          <Route path="/" component={Login} exact={true} />
+          <Route path="/login" component={Login} exact={true} />
           <Route path="/home" component={Home} exact={true} />
           <Route component={PageNoteFound} />
         </Switch>
