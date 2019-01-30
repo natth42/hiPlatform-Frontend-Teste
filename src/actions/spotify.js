@@ -11,15 +11,12 @@ export const fetchData = (data) => {
 };
 
 
-export const fetchSpotifyData = () => {
+export const fetchSpotifyData = (params) => {
   return (dispatch) => {
 
     axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
     return axios.get(`${apiUrlSpotify}/search`, {
-      params: {
-        q: 'tania bowra',
-        type: 'artist'
-      }
+      params
     })
       .then((response) => {
         console.log(response.data);
@@ -27,7 +24,6 @@ export const fetchSpotifyData = () => {
       })
       .catch((error) => {
         throw(error);
-        console.log('error');
       });
   };
 };

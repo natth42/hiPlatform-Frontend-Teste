@@ -14,4 +14,13 @@
 .center{
     display: flex;
     justify-content: center;
+    align-items: center
+}
+
+/* SearchBar */
+.search-button {
+    border-radius: 3rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 1rem;
 }
