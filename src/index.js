@@ -10,9 +10,6 @@ import { Provider } from 'react-redux';
 import reducers from './reducers/reducers';
 import { getToken } from './actions/index';
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 const store = createStore(reducers, applyMiddleware(thunk));
 
 store.dispatch(getToken());

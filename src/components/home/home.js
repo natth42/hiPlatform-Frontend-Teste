@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import Header from '../header/header';
-import SearchBar from '../SearchBar/searchBar';
+import Filters from '../filters/filters';
 import List from '../list/list';
 import {
   Container
@@ -20,7 +20,7 @@ class Home extends React.Component {
       <Fragment>
         <Header />
         <Container> 
-          <SearchBar />
+          <Filters />
         </Container> 
         <Container>
           <List />

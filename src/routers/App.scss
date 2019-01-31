@@ -29,6 +29,13 @@
     display: inline-block;
     color: #000;
     text-decoration: none;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.link:focus{
+    outline: none;
 }
 
 .link::after {
@@ -36,7 +43,7 @@
     display: block;
     width: 0;
     height: 2px;
-    background: #1db954;
+    background: #333;
     transition: width .3s;
 }
 
@@ -51,6 +58,16 @@
     height: 2px;
     background: #1db954;
     width: 100%;
+}
+
+.btn-active{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-active:focus{
+    outline: none;
 }
 
 /* List */

@@ -1,42 +1,35 @@
 import React, { Fragment } from 'react';
 import {
-    Table,
-    Container,
-    Row,
-    Col
+    Table
 } from 'reactstrap';
-import ListHeader from '../list-header/listHeader';
+import ListHeader from '../listHeader/listHeader';
+import { connect } from 'react-redux';
+import ListItems from '../listItems/listItems';
 
-const List = () => {
+const List = ({typeFilter}) => {
   return (
     <Fragment>
     <Table role="table" hover responsive>
     <thead>
       <tr>
-        <ListHeader />
+        <ListHeader type={typeFilter}/>
       </tr>
     </thead>
     <tbody>
-      <tr>
-            <td>
-              <Container>
-                <Row>
-                  <Col xs="auto">
-                  fota
-                  </Col>
-                  <Col>
-                    Item 1
-                  </Col>
-                </Row>
-              </Container>
-            </td>
-            <td>-</td>
-            <td>-</td>
-          </tr>
+        <ListItems />     
     </tbody>
   </Table>
     </Fragment>
   );
 }
 
-export default List;
+const mapStateToProps = state => {
+  return {
+    typeFilter: state.typeFilterReducer
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(List);

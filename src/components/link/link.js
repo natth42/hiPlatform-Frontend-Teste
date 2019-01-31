@@ -6,11 +6,11 @@ export const Link = ({
     onClick
   }) => {
     if (active) {
-      return <a className="space-sides link-active">{text}</a>;
+      return <button className="btn-active space-sides link-active">{text}</button>;
     }
   
     return (
-      <a href='#'
+      <button href='#'
             className="space-sides link"
          onClick={e => {
            e.preventDefault();
@@ -18,6 +18,6 @@ export const Link = ({
          }}
       >
         {text}
-      </a>
+      </button>
     );
   };
