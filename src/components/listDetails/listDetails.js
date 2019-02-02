@@ -4,7 +4,9 @@ import { fetchSpotifyAlbumsData, fetchSpotifyTracksData } from '../../actions/in
 import Header from '../header/header';
 import LatestsAlbumsList from '../latestsAlbumsList/latestsAlbumsList.js';
 import AlbumTracksList from '../AlbumTracksList/AlbumTracksList';
+import { withRouter } from "react-router";
 import {
+  Button,
   Container
 } from 'reactstrap';
 
@@ -30,7 +32,8 @@ class ListDetails extends React.Component {
       <Fragment>
         <Header />
         <Container> 
-          <h1 className="center">{this.state.type === 'artist' ? 'Últimos 5 albums!' : 'Todas as Músicas'} 🔥</h1>
+            <Button className="buttonSpotify space-top" color="success" onClick={() => this.props.history.push(`/lista`)}>Voltar</Button>
+            <h1 className="center">{this.state.type === 'artist' ? 'Últimos 5 albums!' : 'Todas as Músicas'} 🔥</h1>
           {
             this.state.type
             &&
@@ -67,7 +70,7 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps,
   mapDispatchToProps
-)(ListDetails);
+)(ListDetails));

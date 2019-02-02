@@ -79,3 +79,20 @@
 .cursor {
     cursor: pointer;
 }
+
+/* Login and ListDetails */
+.buttonSpotify {
+    border-color: white;
+    background-color: #1db954;
+    border-radius: 3rem;
+}
+
+.buttonSpotify:hover {
+    border-color: white;
+    background-color: #1ED760;
+}
+
+.buttonSpotify:active {
+    border-color: white;
+    background-color: #1ED760;
+}

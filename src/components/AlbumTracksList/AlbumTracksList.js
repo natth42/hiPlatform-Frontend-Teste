@@ -1,8 +1,5 @@
 import React, { Fragment } from 'react';
 import {
-  Container,
-  Col,
-  Row,
   Table
 } from 'reactstrap';
 
