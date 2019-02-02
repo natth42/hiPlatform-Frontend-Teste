@@ -5,9 +5,21 @@ import {
     Col
 } from 'reactstrap';
 import { connect } from 'react-redux';
+import { withRouter } from "react-router";
 
-const ListItems = ({ typeFilter, spotifyData }) => {
-    return (
+class ListItems extends React.Component {
+    constructor(props){
+        super(props);
+        this.goToListDetails = this.goToListDetails.bind(this);
+    }
+    
+    goToListDetails(id){
+        this.props.history.push(`/lista/detalhes/${this.props.typeFilter}/${id}`);
+    }
+
+    render() {
+        const { typeFilter, spotifyData } = this.props;
+        return (
         <Fragment>
             {
                 typeFilter === 'artist'
@@ -16,7 +28,7 @@ const ListItems = ({ typeFilter, spotifyData }) => {
                 &&
                 spotifyData.artists.items.map((item) =>
                     (
-                        <tr key={item.id}>
+                        <tr className="cursor" key={item.id} onClick={() => this.goToListDetails(item.id)}>
                             <td>
                                 <Container>
                                     <Row>
@@ -53,7 +65,7 @@ const ListItems = ({ typeFilter, spotifyData }) => {
                 &&
                 spotifyData.albums.items.map((item) =>
                     (
-                        <tr key={item.id}>
+                        <tr className="cursor" key={item.id} onClick={() => this.goToListDetails(item.id)}>
                             <td>
                                 <Container>
                                     <Row>
@@ -112,9 +124,7 @@ const ListItems = ({ typeFilter, spotifyData }) => {
                             </td>
                             <td>
                             {
-                                item.artists.map((artist) => (
-                                    <div key={artist.id}>{artist.name}</div>
-                                ))
+                                Array.prototype.map.call(item.artists, artist => artist.name).join(", ")
                             }
                             </td>
                             <td>{item.album.name}</td>
@@ -126,6 +136,7 @@ const ListItems = ({ typeFilter, spotifyData }) => {
         </Fragment>
     );
 }
+}
 
 const mapStateToProps = state => {
     return {
@@ -134,7 +145,7 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps,
     null
-)(ListItems);
+)(ListItems));

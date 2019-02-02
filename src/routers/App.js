@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Login from '../components/login/login';
 import Home from '../components/home/home';
+import ListDetails from '../components/listDetails/listDetails';
 import PageNoteFound from '../components/pageNotFound/pageNotFound';
 
 import './App.scss';
@@ -21,7 +22,8 @@ class AppRouter extends React.Component {
         <Switch>
           <Route path="/" component={Login} exact={true} />
           <Route path="/login" component={Login} exact={true} />
-          <Route path="/home" component={Home} exact={true} />
+          <Route path="/lista" component={Home} exact={true} />
+          <Route path='/lista/detalhes/:type/:id' component={ListDetails} />
           <Route component={PageNoteFound} />
         </Switch>
       </BrowserRouter>
