@@ -5,7 +5,6 @@ export const successAlert = (message) => {
 };
 
 export const errorAlert = (message) => {
-    console.log('error');
     return { type: ALERT_ERROR, message };
 };
 export const clearAlert = () => {
