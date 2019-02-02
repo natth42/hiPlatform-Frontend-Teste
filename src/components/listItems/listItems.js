@@ -6,15 +6,46 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
+import { setFavoriteItem, setUnfavoriteItem } from '../../actions/index';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar as starRegular } from '@fortawesome/free-regular-svg-icons';
+import { faStar as starSolid } from '@fortawesome/free-solid-svg-icons';
 
 class ListItems extends React.Component {
     constructor(props){
         super(props);
         this.goToListDetails = this.goToListDetails.bind(this);
+        this.setFavorite = this.setFavorite.bind(this);
+        this.setUnfavorite = this.setUnfavorite.bind(this);
+        this.verifyFavorites = this.verifyFavorites.bind(this);
     }
     
     goToListDetails(id){
         this.props.history.push(`/lista/detalhes/${this.props.typeFilter}/${id}`);
+    }
+
+    setFavorite(item){
+        item.favorite = true;
+        this.forceUpdate();
+        this.props.setFavoriteItem(this.props.nameFilter, item);
+    }
+
+    setUnfavorite(item){
+        item.favorite = false;
+        this.forceUpdate();
+        this.props.setUnfavoriteItem(this.props.nameFilter, item);
+    }
+
+    verifyFavorites(items){
+        let searchItem = JSON.parse(localStorage.getItem(this.props.nameFilter));
+        if(!searchItem){
+            return items;
+        }
+        for (let index = 0; index < items.length; index++) {
+            const element = items[index];
+            element.favorite = searchItem.includes(element.id);
+        }
+        return items;
     }
 
     render() {
@@ -26,10 +57,18 @@ class ListItems extends React.Component {
                 &&
                 spotifyData.artists
                 &&
-                spotifyData.artists.items.map((item) =>
+                this.verifyFavorites(spotifyData.artists.items).map((item) =>
                     (
-                        <tr className="cursor" key={item.id} onClick={() => this.goToListDetails(item.id)}>
+                        <tr className="cursor" key={item.id}>
                             <td>
+                                {
+                                    item.favorite ?
+                                    <FontAwesomeIcon icon={starSolid} color="yellow" onClick={() => this.setUnfavorite(item)} />
+                                    :
+                                    <FontAwesomeIcon icon={starRegular} onClick={() => this.setFavorite(item)} />
+                                }
+                            </td>
+                            <td onClick={() => this.goToListDetails(item.id)}>
                                 <Container>
                                     <Row>
                                         <Col xs="auto">
@@ -63,10 +102,18 @@ class ListItems extends React.Component {
                 &&
                 spotifyData.albums
                 &&
-                spotifyData.albums.items.map((item) =>
+                this.verifyFavorites(spotifyData.albums.items).map((item) =>
                     (
-                        <tr className="cursor" key={item.id} onClick={() => this.goToListDetails(item.id)}>
-                            <td>
+                        <tr className="cursor" key={item.id}>
+                        <td>
+                        {
+                            item.favorite ?
+                            <FontAwesomeIcon icon={starSolid} color="yellow" onClick={() => this.setUnfavorite(item)}/>
+                            :
+                            <FontAwesomeIcon icon={starRegular} onClick={() => this.setFavorite(item)} />
+                        }
+                    </td>
+                            <td onClick={() => this.goToListDetails(item.id)}>
                                 <Container>
                                     <Row>
                                         <Col xs="auto">
@@ -103,9 +150,17 @@ class ListItems extends React.Component {
                 &&
                 spotifyData.tracks
                 &&
-                spotifyData.tracks.items.map((item) =>
+                this.verifyFavorites(spotifyData.tracks.items).map((item) =>
                     (
                         <tr key={item.id}>
+                        <td className="cursor">
+                        {
+                            item.favorite ?
+                            <FontAwesomeIcon icon={starSolid} color="yellow" onClick={() => this.setUnfavorite(item)}/>
+                            :
+                            <FontAwesomeIcon icon={starRegular} onClick={() => this.setFavorite(item)} />
+                        }
+                    </td>
                             <td>
                                 <Container>
                                     <Row>
@@ -141,11 +196,21 @@ class ListItems extends React.Component {
 const mapStateToProps = state => {
     return {
         typeFilter: state.typeFilterReducer,
-        spotifyData: state.spotifyReducer
+        nameFilter: state.nameFilterReducer,
+        spotifyData: state.spotifyReducer,
+        setFavoriteItem,
+        setUnfavoriteItem
     };
 };
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setFavoriteItem: (search, item) => dispatch(setFavoriteItem(search, item)),
+        setUnfavoriteItem: (search, item) => dispatch(setUnfavoriteItem(search, item))
+    };
+  };
+
 export default withRouter(connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
 )(ListItems));

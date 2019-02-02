@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { fetchSpotifyData, errorAlert, clearAlert } from '../../actions/index';
+import { fetchSpotifyData, errorAlert, clearAlert, setNameFilter } from '../../actions/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -20,11 +20,13 @@ class NameFilter extends React.Component {
     
     search(e){
         e.preventDefault();
-        if(e.target.search.value && e.target.search.value !== ' '){
+        const name = e.target.search.value;
+        if(name && name !== ' '){
             const values = {
-                q: e.target.search.value,
+                q: name,
                 type: this.props.typeFilter
             };
+            this.props.setNameFilter(name.trim().toLowerCase());
             this.props.fetchSpotifyData(values);
         }else{
             this.props.errorAlert('Para fazer uma pesquisa é necessário digitar um nome no campo!');
@@ -53,6 +55,7 @@ class NameFilter extends React.Component {
 const mapStateToProps = state => {
     return {
       fetchSpotifyData,
+      setNameFilter,
       typeFilter: state.typeFilterReducer
     };
   };
@@ -60,6 +63,7 @@ const mapStateToProps = state => {
   const mapDispatchToProps = (dispatch) => {
     return {
       fetchSpotifyData: (params) => dispatch(fetchSpotifyData(params)),
+      setNameFilter: (name) => dispatch(setNameFilter(name)),
       errorAlert: (message) => dispatch(errorAlert(message)),
       clearAlert: () => dispatch(clearAlert())
     };

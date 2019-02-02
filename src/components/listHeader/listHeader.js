@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 
 const ListHeader = ({type}) => {
-  const artist = ['artista', 'genero', 'popularidade'];
-  const album = ['album', 'artistas', 'disponibilidade'];
-  const track = ['música', 'artista', 'album', 'duração'];
+  const artist = ['#', 'artista', 'genero', 'popularidade'];
+  const album = ['#', 'album', 'artistas', 'disponibilidade'];
+  const track = ['#', 'música', 'artista', 'album', 'duração'];
   const header = type === 'artist'? artist : type === 'album' ? album : track;
   
   return (

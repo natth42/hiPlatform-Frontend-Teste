@@ -5,6 +5,7 @@ import './login.scss';
 
 const Login = () => {
     const urlSpotify = 'https://accounts.spotify.com/authorize?client_id=29c9f66e9a314c38858dd3fe2ffe35cd&response_type=token&redirect_uri=http://localhost:3000/lista';
+    localStorage.clear();
     return (
         <Fragment>
         <Header />
