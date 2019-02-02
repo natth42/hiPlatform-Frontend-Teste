@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { formatTime } from '../../utils/formatTime';
 import {
     Container,
     Row,
@@ -184,7 +185,7 @@ class ListItems extends React.Component {
                             }
                             </td>
                             <td>{item.album.name}</td>
-                            <td>{item.duration_ms}</td>
+                            <td>{formatTime(item.duration_ms)}</td>
                         </tr>
                     )
                 )
