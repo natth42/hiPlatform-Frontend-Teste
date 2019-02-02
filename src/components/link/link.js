@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Link = ({
     active,
@@ -20,4 +21,10 @@ export const Link = ({
         {text}
       </button>
     );
+  };
+
+  Link.propTypes = {
+    text: PropTypes.string,
+    active: PropTypes.bool,
+    onClick: PropTypes.func 
   };

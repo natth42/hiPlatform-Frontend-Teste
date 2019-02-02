@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import TypeFilter from '../typeFilter/typeFilter';
 import NameFilter from '../nameFilter/nameFilter';
 import { connect } from 'react-redux';
@@ -45,6 +46,13 @@ const mapStateToProps = state => {
       clearAlert: () => dispatch(clearAlert())
     };
   };
+
+  Filters.propTypes = {
+    alert: PropTypes.array,
+    errorAlert: PropTypes.func,
+    clearAlert: PropTypes.func
+  };
+  
   
   export default connect(
     mapStateToProps,

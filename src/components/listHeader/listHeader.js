@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 const ListHeader = ({type}) => {
   const artist = ['#', 'artista', 'genero', 'popularidade'];
@@ -22,5 +23,9 @@ const ListHeader = ({type}) => {
     </Fragment>
   );
 }
+
+ListHeader.propTypes = {
+  type: PropTypes.string
+};
 
 export default ListHeader;

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import {
   Table
 } from 'reactstrap';
@@ -16,9 +17,9 @@ const AlbumsTracksList = ({ tracks }) => {
         </thead>
         <tbody>
         {
-          tracks.total > 0
+          tracks
           &&
-          tracks.items.map((item) =>
+          tracks.map((item) =>
             (
               <tr key={item.id}>
                 <td>
@@ -39,5 +40,9 @@ const AlbumsTracksList = ({ tracks }) => {
     </Fragment>
   );
 }
+
+AlbumsTracksList.propTypes = {
+  tracks: PropTypes.arrayOf(PropTypes.object)
+};
 
 export default AlbumsTracksList;

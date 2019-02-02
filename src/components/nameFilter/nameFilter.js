@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchSpotifyData, errorAlert, clearAlert, setNameFilter } from '../../actions/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -58,6 +59,14 @@ const mapStateToProps = state => {
       setNameFilter,
       typeFilter: state.typeFilterReducer
     };
+  };
+
+  NameFilter.propTypes = {
+    typeFilter: PropTypes.string,
+    fetchSpotifyData: PropTypes.func,
+    setNameFilter: PropTypes.func,
+    errorAlert: PropTypes.func,
+    clearAlert: PropTypes.func
   };
   
   const mapDispatchToProps = (dispatch) => {

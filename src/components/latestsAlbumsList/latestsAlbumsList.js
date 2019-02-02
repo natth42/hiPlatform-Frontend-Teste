@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import {
   Container,
   Col,
@@ -19,9 +20,9 @@ const LatestsAlbumsList = ({ albums }) => {
         </thead>
         <tbody>
         {
-          albums.total > 0
+          albums
           &&
-          albums.items.slice(0, 5).map((item) =>
+          albums.slice(0, 5).map((item) =>
             (
               <tr key={item.id}>
                 <td>
@@ -60,5 +61,9 @@ const LatestsAlbumsList = ({ albums }) => {
     </Fragment>
   );
 }
+
+LatestsAlbumsList.propTypes = {
+  albums: PropTypes.arrayOf(PropTypes.object)
+};
 
 export default LatestsAlbumsList;

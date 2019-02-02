@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Header from '../header/header';
 import Filters from '../filters/filters';
 import List from '../list/list';
@@ -34,6 +35,10 @@ const mapStateToProps = state => {
   return {
     token: state.tokenReducer
   };
+};
+
+Home.propTypes = {
+  token: PropTypes.string
 };
 
 export default connect(

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import {
     Container,
     Row,
@@ -201,6 +202,17 @@ const mapStateToProps = state => {
         setFavoriteItem,
         setUnfavoriteItem
     };
+};
+
+ListItems.propTypes = {
+    typeFilter: PropTypes.string,
+    nameFilter: PropTypes.string,
+    spotifyData: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.array
+    ]),
+    setFavoriteItem: PropTypes.func,
+    setUnfavoriteItem: PropTypes.func
 };
 
 const mapDispatchToProps = (dispatch) => {

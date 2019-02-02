@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { fetchSpotifyAlbumsData, fetchSpotifyTracksData } from '../../actions/index';
 import Header from '../header/header';
 import LatestsAlbumsList from '../latestsAlbumsList/latestsAlbumsList.js';
@@ -39,14 +40,14 @@ class ListDetails extends React.Component {
             &&
             this.state.type === 'artist'
             &&
-            <LatestsAlbumsList albums={spotifyAlbumsArtists} />
+            <LatestsAlbumsList albums={spotifyAlbumsArtists.items} />
           }
           {
             this.state.type
             &&
             this.state.type === 'album'
             &&
-            <AlbumTracksList tracks={spotifyAlbumsTracks} />
+            <AlbumTracksList tracks={spotifyAlbumsTracks.items} />
           }
         </Container> 
       </Fragment>
@@ -61,6 +62,19 @@ const mapStateToProps = state => {
     spotifyAlbumsArtists: state.spotifyReducer,
     spotifyAlbumsTracks: state.spotifyReducer
   };
+};
+
+ListDetails.propTypes = {
+  fetchSpotifyAlbumsData: PropTypes.func,
+  fetchSpotifyTracksData: PropTypes.func,
+  spotifyAlbumsArtists: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array
+  ]),
+  spotifyAlbumsTracks: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array
+  ])
 };
 
 const mapDispatchToProps = (dispatch) => {

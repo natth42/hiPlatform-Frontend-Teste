@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setFilterType } from '../../actions/index';
 import { Link } from '../link/link';
@@ -35,6 +36,11 @@ const mapStateToProps = state => {
         setFilterType,
         typeFilter: state.typeFilterReducer
     };
+};
+
+TypeFilter.propTypes = {
+    typeFilter: PropTypes.string,
+    setFilterType: PropTypes.func
 };
 
 const mapDispatchToProps = (dispatch) => {

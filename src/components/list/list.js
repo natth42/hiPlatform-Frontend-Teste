@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import {
     Table
 } from 'reactstrap';
@@ -27,6 +28,10 @@ const mapStateToProps = state => {
   return {
     typeFilter: state.typeFilterReducer
   };
+};
+
+List.propTypes = {
+  typeFilter: PropTypes.string
 };
 
 export default connect(
