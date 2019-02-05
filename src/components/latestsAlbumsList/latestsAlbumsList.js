@@ -1,9 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { ImageNameItem } from '../imageNameItem/imageNameItem';
 import {
-    Container,
-    Col,
-    Row,
     Table
 } from 'reactstrap';
 
@@ -26,20 +24,7 @@ const LatestsAlbumsList = ({ albums }) => {
                             (
                                 <tr key={item.id}>
                                     <td>
-                                        <Container>
-                                            <Row>
-                                                <Col xs="auto">
-                                                    {
-                                                        item.images[0]
-                                                        &&
-                                                        <img src={item.images[0].url} alt="" height="64" width="64" />
-                                                    }
-                                                </Col>
-                                                <Col>
-                                                    {item.name}
-                                                </Col>
-                                            </Row>
-                                        </Container>
+                                        <ImageNameItem name={item.name} images={item.images} />
                                     </td>
                                     <td>
                                         {

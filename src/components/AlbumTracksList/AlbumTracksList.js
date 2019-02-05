@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { formatTime } from '../../utils/formatTime';
 import PropTypes from 'prop-types';
 import {
     Table
@@ -30,7 +31,7 @@ const AlbumsTracksList = ({ tracks }) => {
                                             Array.prototype.map.call(item.artists, artist => artist.name).join(", ")
                                         }
                                     </td>
-                                    <td>{item.duration_ms}</td>
+                                    <td>{formatTime(item.duration_ms)}</td>
                                 </tr>
                             )
                         )

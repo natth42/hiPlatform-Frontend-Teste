@@ -27,13 +27,19 @@ ShallowWrapper {
       >
         <thead>
           <tr>
-            <th>
+            <th
+              aria-label="Música"
+            >
               Música
             </th>
-            <th>
+            <th
+              aria-label="Artistas"
+            >
               Artistas
             </th>
-            <th>
+            <th
+              aria-label="Duração"
+            >
               Duração
             </th>
           </tr>
@@ -50,13 +56,19 @@ ShallowWrapper {
         "children": Array [
           <thead>
             <tr>
-              <th>
+              <th
+                aria-label="Música"
+              >
                 Música
               </th>
-              <th>
+              <th
+                aria-label="Artistas"
+              >
                 Artistas
               </th>
-              <th>
+              <th
+                aria-label="Duração"
+              >
                 Duração
               </th>
             </tr>
@@ -77,13 +89,19 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": <tr>
-              <th>
+              <th
+                aria-label="Música"
+              >
                 Música
               </th>
-              <th>
+              <th
+                aria-label="Artistas"
+              >
                 Artistas
               </th>
-              <th>
+              <th
+                aria-label="Duração"
+              >
                 Duração
               </th>
             </tr>,
@@ -95,13 +113,19 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                <th>
+                <th
+                  aria-label="Música"
+                >
                   Música
                 </th>,
-                <th>
+                <th
+                  aria-label="Artistas"
+                >
                   Artistas
                 </th>,
-                <th>
+                <th
+                  aria-label="Duração"
+                >
                   Duração
                 </th>,
               ],
@@ -113,6 +137,7 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
+                  "aria-label": "Música",
                   "children": "Música",
                 },
                 "ref": null,
@@ -124,6 +149,7 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
+                  "aria-label": "Artistas",
                   "children": "Artistas",
                 },
                 "ref": null,
@@ -135,6 +161,7 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
+                  "aria-label": "Duração",
                   "children": "Duração",
                 },
                 "ref": null,
@@ -177,13 +204,19 @@ ShallowWrapper {
         >
           <thead>
             <tr>
-              <th>
+              <th
+                aria-label="Música"
+              >
                 Música
               </th>
-              <th>
+              <th
+                aria-label="Artistas"
+              >
                 Artistas
               </th>
-              <th>
+              <th
+                aria-label="Duração"
+              >
                 Duração
               </th>
             </tr>
@@ -200,13 +233,19 @@ ShallowWrapper {
           "children": Array [
             <thead>
               <tr>
-                <th>
+                <th
+                  aria-label="Música"
+                >
                   Música
                 </th>
-                <th>
+                <th
+                  aria-label="Artistas"
+                >
                   Artistas
                 </th>
-                <th>
+                <th
+                  aria-label="Duração"
+                >
                   Duração
                 </th>
               </tr>
@@ -227,13 +266,19 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": <tr>
-                <th>
+                <th
+                  aria-label="Música"
+                >
                   Música
                 </th>
-                <th>
+                <th
+                  aria-label="Artistas"
+                >
                   Artistas
                 </th>
-                <th>
+                <th
+                  aria-label="Duração"
+                >
                   Duração
                 </th>
               </tr>,
@@ -245,13 +290,19 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  <th>
+                  <th
+                    aria-label="Música"
+                  >
                     Música
                   </th>,
-                  <th>
+                  <th
+                    aria-label="Artistas"
+                  >
                     Artistas
                   </th>,
-                  <th>
+                  <th
+                    aria-label="Duração"
+                  >
                     Duração
                   </th>,
                 ],
@@ -263,6 +314,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
+                    "aria-label": "Música",
                     "children": "Música",
                   },
                   "ref": null,
@@ -274,6 +326,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
+                    "aria-label": "Artistas",
                     "children": "Artistas",
                   },
                   "ref": null,
@@ -285,6 +338,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
+                    "aria-label": "Duração",
                     "children": "Duração",
                   },
                   "ref": null,

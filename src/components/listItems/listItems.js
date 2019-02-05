@@ -1,16 +1,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { formatTime } from '../../utils/formatTime';
+import Tag from '../tag/tag';
 import Favorite from '../favorite/favorite';
+import { ImageNameItem } from '../imageNameItem/imageNameItem';
 import './listItems.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCompactDisc } from '@fortawesome/free-solid-svg-icons';
-import {
-    Badge,
-    Container,
-    Row,
-    Col
-} from 'reactstrap';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 
@@ -53,36 +47,16 @@ class ListItems extends React.Component {
                                     <Favorite item={item} nameFilter={nameFilter} />
                                 </td>
                                 <td onClick={() => this.goToListDetails(item.id)}>
-                                    <Container>
-                                        <Row>
-                                            <Col xs="auto">
-                                                {
-                                                    item.images.length > 0 ?
-                                                    <img src={item.images[0].url} alt="" height="64" width="64" />
-                                                    :
-                                                    <FontAwesomeIcon icon={faCompactDisc} className="iconDisc" />
-                                                }
-                                            </Col>
-                                            <Col>
-                                                {item.name}
-                                            </Col>
-                                        </Row>
-                                    </Container>
+                                    <ImageNameItem name={item.name} images={item.images} />
                                 </td>
                                 <td>
                                     {
                                         item.genres.join(", ")
                                     }
                                 </td>
-                                <td>{
-                                    item.popularity >= 80 ? 
-                                    <Badge color="success" pill>Hot</Badge> : 
-                                        item.popularity >= 60 && item.popularity <= 79 ? 
-                                        <Badge color="success" pill>Cool</Badge>  : 
-                                        item.popularity >= 30 && item.popularity <= 59 ? 
-                                        <Badge color="success" pill>Regular</Badge> :
-                                        <Badge color="success" pill>Underground</Badge>
-                                }</td>
+                                <td>
+                                    <Tag popularity={item.popularity} />
+                                </td>
                             </tr>
                         )
                     )
@@ -100,21 +74,7 @@ class ListItems extends React.Component {
                                     <Favorite item={item} nameFilter={nameFilter} />
                                 </td>
                                 <td onClick={() => this.goToListDetails(item.id)}>
-                                    <Container>
-                                        <Row>
-                                            <Col xs="auto">
-                                                {
-                                                    item.images.length > 0 ?
-                                                    <img src={item.images[0].url} alt="" height="64" width="64" />
-                                                    :
-                                                    <FontAwesomeIcon icon={faCompactDisc} className="iconDisc" />
-                                                }
-                                            </Col>
-                                            <Col>
-                                                {item.name}
-                                            </Col>
-                                        </Row>
-                                    </Container>
+                                    <ImageNameItem name={item.name} images={item.images} />
                                 </td>
                                 <td>
                                     {
@@ -144,21 +104,7 @@ class ListItems extends React.Component {
                                     <Favorite item={item} nameFilter={nameFilter} />
                                 </td>
                                 <td>
-                                    <Container>
-                                        <Row>
-                                            <Col xs="auto">
-                                                {
-                                                    item.album.images.length > 0 ?
-                                                    <img src={item.album.images[0].url} alt="" height="64" width="64" />
-                                                    :
-                                                    <FontAwesomeIcon icon={faCompactDisc} className="iconDisc" />
-                                                }
-                                            </Col>
-                                            <Col>
-                                                {item.name}
-                                            </Col>
-                                        </Row>
-                                    </Container>
+                                    <ImageNameItem name={item.name} images={item.album.images} />
                                 </td>
                                 <td>
                                     {
