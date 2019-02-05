@@ -1,4 +1,4 @@
-import { ALERT_SUCCESS, ALERT_ERROR, ALERT_CLEAR  } from './types';
+import { ALERT_SUCCESS, ALERT_ERROR, ALERT_CLEAR } from './types';
 
 export const successAlert = (message) => {
     return { type: ALERT_SUCCESS, message };

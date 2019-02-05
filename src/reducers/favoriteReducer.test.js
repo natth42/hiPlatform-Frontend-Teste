@@ -11,7 +11,7 @@ describe('favoriteReducer reducer', () => {
         expect(
             favoriteReducer([], {
                 type: SET_FAVORITE,
-                favoriteItem: {name: 'favorite item', id: 31561, favorite: true}
+                favoriteItem: { name: 'favorite item', id: 31561, favorite: true }
             })
         ).toEqual({
             name: 'favorite item', id: 31561, favorite: true

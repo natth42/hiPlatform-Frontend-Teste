@@ -7,34 +7,34 @@ import ListHeader from '../listHeader/listHeader';
 import { connect } from 'react-redux';
 import ListItems from '../listItems/listItems';
 
-const List = ({typeFilter}) => {
-  return (
-    <Fragment>
-    <Table role="table" hover responsive>
-    <thead>
-      <tr>
-        <ListHeader type={typeFilter}/>
-      </tr>
-    </thead>
-    <tbody>
-        <ListItems />     
-    </tbody>
-  </Table>
-    </Fragment>
-  );
+const List = ({ typeFilter }) => {
+    return (
+        <Fragment>
+            <Table role="table" hover responsive>
+                <thead>
+                    <tr>
+                        <ListHeader type={typeFilter} />
+                    </tr>
+                </thead>
+                <tbody>
+                    <ListItems />
+                </tbody>
+            </Table>
+        </Fragment>
+    );
 }
 
 const mapStateToProps = state => {
-  return {
-    typeFilter: state.typeFilterReducer
-  };
+    return {
+        typeFilter: state.typeFilterReducer
+    };
 };
 
 List.propTypes = {
-  typeFilter: PropTypes.string
+    typeFilter: PropTypes.string
 };
 
 export default connect(
-  mapStateToProps,
-  null
+    mapStateToProps,
+    null
 )(List);

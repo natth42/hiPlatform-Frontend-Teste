@@ -8,19 +8,19 @@ import { faStar as starRegular } from '@fortawesome/free-regular-svg-icons';
 import { faStar as starSolid } from '@fortawesome/free-solid-svg-icons';
 
 class Favorite extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.setFavorite = this.setFavorite.bind(this);
         this.setUnfavorite = this.setUnfavorite.bind(this);
     }
 
-    setFavorite(item){
+    setFavorite(item) {
         item.favorite = true;
         this.forceUpdate();
         this.props.setFavoriteItem(this.props.nameFilter, item);
     }
 
-    setUnfavorite(item){
+    setUnfavorite(item) {
         item.favorite = false;
         this.forceUpdate();
         this.props.setUnfavoriteItem(this.props.nameFilter, item);
@@ -29,16 +29,16 @@ class Favorite extends React.Component {
     render() {
         const { item } = this.props;
         return (
-        <Fragment>
-         {
-            item.favorite ?
-            <FontAwesomeIcon icon={starSolid} color="yellow" onClick={() => this.setUnfavorite(item)}/>
-            :
-            <FontAwesomeIcon icon={starRegular} onClick={() => this.setFavorite(item)} />
-         }
-        </Fragment>
-    );
-}
+            <Fragment>
+                {
+                    item.favorite ?
+                        <FontAwesomeIcon icon={starSolid} color="yellow" onClick={() => this.setUnfavorite(item)} />
+                        :
+                        <FontAwesomeIcon icon={starRegular} onClick={() => this.setFavorite(item)} />
+                }
+            </Fragment>
+        );
+    }
 }
 
 const mapStateToProps = state => {
@@ -60,7 +60,7 @@ const mapDispatchToProps = (dispatch) => {
         setFavoriteItem: (search, item) => dispatch(setFavoriteItem(search, item)),
         setUnfavoriteItem: (search, item) => dispatch(setUnfavoriteItem(search, item))
     };
-  };
+};
 
 export default withRouter(connect(
     mapStateToProps,

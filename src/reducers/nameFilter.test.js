@@ -11,9 +11,9 @@ describe('nameFilterReducer reducer', () => {
         expect(
             nameFilterReducer([], {
                 type: SET_NAME_FILTER,
-                filter: {filter: 'Run the tests'}
+                filter: { filter: 'Run the tests' }
             })
-        ).toEqual({filter: 'Run the tests'})
+        ).toEqual({ filter: 'Run the tests' })
     })
 
 })

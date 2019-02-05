@@ -7,75 +7,75 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem(
 const apiUrlSpotify = 'https://api.spotify.com/v1';
 
 export const fetchData = (spotifyData) => {
-  return {
-    type: FETCH_SPOTIFY_DATA,
-    spotifyData
-  }
+    return {
+        type: FETCH_SPOTIFY_DATA,
+        spotifyData
+    }
 };
 
 export const fetchAlbumsData = (spotifyAlbumsArtists) => {
-  return {
-    type: FETCH_SPOTIFY_DATA_ALBUMS,
-    spotifyAlbumsArtists
-  }
+    return {
+        type: FETCH_SPOTIFY_DATA_ALBUMS,
+        spotifyAlbumsArtists
+    }
 };
 
 export const fetchTracksData = (spotifyAlbumTracks) => {
-  return {
-    type: FETCH_SPOTIFY_DATA_TRACKS,
-    spotifyAlbumTracks
-  }
+    return {
+        type: FETCH_SPOTIFY_DATA_TRACKS,
+        spotifyAlbumTracks
+    }
 };
 
 export const errorTratament = (error, dispatch) => {
-  if(error.response && error.response.status === 401){
-    window.location = urlSpotify;
-    return errorAlert('Sua Sessão expirou, se autentique novamente!');
-  }else{
-    return errorAlert('Tivemos alguns problemas técnicos buscandos os dados que você queria. tente novamente mais tarde!');
-  }
+    if (error.response && error.response.status === 401) {
+        window.location = urlSpotify;
+        return errorAlert('Sua Sessão expirou, se autentique novamente!');
+    } else {
+        return errorAlert('Tivemos alguns problemas técnicos buscandos os dados que você queria. tente novamente mais tarde!');
+    }
 }
 
 export const fetchSpotifyData = (params) => {
-  return (dispatch) => {
+    return (dispatch) => {
 
-    return axios.get(`${apiUrlSpotify}/search`, {
-      params
-    })
-      .then((response) => {
-        dispatch(fetchData(response.data))
-      })
-      .catch((error) => {
-        dispatch(errorTratament(error));
-        throw(error);
-      });
-  };
+        return axios.get(`${apiUrlSpotify}/search`, {
+            params
+        })
+            .then((response) => {
+                dispatch(fetchData(response.data))
+            })
+            .catch((error) => {
+                dispatch(errorTratament(error));
+                throw (error);
+            });
+    };
 };
 
 export const fetchSpotifyAlbumsData = (id) => {
-  return (dispatch) => {
-    
-    return axios.get(`${apiUrlSpotify}/artists/${id}/albums`)
-      .then((response) => {
-        dispatch(fetchAlbumsData(response.data))
-      })
-      .catch((error) => {
-        dispatch(errorTratament(error));
-        throw(error);
-      });
-  };
+    return (dispatch) => {
+
+        return axios.get(`${apiUrlSpotify}/artists/${id}/albums`)
+            .then((response) => {
+                dispatch(fetchAlbumsData(response.data))
+            })
+            .catch((error) => {
+                dispatch(errorTratament(error));
+                throw (error);
+            });
+    };
 };
 
 export const fetchSpotifyTracksData = (id) => {
-  return (dispatch) => {
+    return (dispatch) => {
 
-    return axios.get(`${apiUrlSpotify}/albums/${id}/tracks`)
-      .then((response) => {
-        dispatch(fetchTracksData(response.data))
-      })
-      .catch((error) => {
-        dispatch(errorTratament(error));
-        throw(error);
-      });
-  };
+        return axios.get(`${apiUrlSpotify}/albums/${id}/tracks`)
+            .then((response) => {
+                dispatch(fetchTracksData(response.data))
+            })
+            .catch((error) => {
+                dispatch(errorTratament(error));
+                throw (error);
+            });
+    };
 };

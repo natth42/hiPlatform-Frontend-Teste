@@ -12,23 +12,23 @@ import PageNoteFound from '../components/pageNotFound/pageNotFound';
 import './App.scss';
 
 class AppRouter extends React.Component {
-  componentDidMount() {
-    document.documentElement.lang = 'pt-BR';
-  }
+    componentDidMount() {
+        document.documentElement.lang = 'pt-BR';
+    }
 
-  render() {
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" component={Login} exact={true} />
-          <Route path="/login" component={Login} exact={true} />
-          <Route path="/lista" component={Home} exact={true} />
-          <Route path='/lista/detalhes/:type/:id' component={ListDetails} />
-          <Route component={PageNoteFound} />
-        </Switch>
-      </BrowserRouter>
-    );
-  }
+    render() {
+        return (
+            <BrowserRouter>
+                <Switch>
+                    <Route path="/" component={Login} exact={true} />
+                    <Route path="/login" component={Login} exact={true} />
+                    <Route path="/lista" component={Home} exact={true} />
+                    <Route path='/lista/detalhes/:type/:id' component={ListDetails} />
+                    <Route component={PageNoteFound} />
+                </Switch>
+            </BrowserRouter>
+        );
+    }
 }
 
 export default AppRouter;

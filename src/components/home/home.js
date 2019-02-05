@@ -5,44 +5,44 @@ import Header from '../header/header';
 import Filters from '../filters/filters';
 import List from '../list/list';
 import {
-  Container
+    Container
 } from 'reactstrap';
 
 class Home extends React.Component {
-  componentDidMount() {
-    document.title = "Home"
-    const { token } = this.props;
-    if(!token){
-      this.props.history.push("/login");
+    componentDidMount() {
+        document.title = "Home"
+        const { token } = this.props;
+        if (!token) {
+            this.props.history.push("/login");
+        }
     }
-  }
 
-  render() {
-    return (
-      <Fragment>
-        <Header />
-        <Container> 
-          <Filters />
-        </Container> 
-        <Container>
-          <List />
-        </Container>
-      </Fragment>
-    );
-  }
+    render() {
+        return (
+            <Fragment>
+                <Header />
+                <Container>
+                    <Filters />
+                </Container>
+                <Container>
+                    <List />
+                </Container>
+            </Fragment>
+        );
+    }
 }
 
 const mapStateToProps = state => {
-  return {
-    token: state.tokenReducer
-  };
+    return {
+        token: state.tokenReducer
+    };
 };
 
 Home.propTypes = {
-  token: PropTypes.string
+    token: PropTypes.string
 };
 
 export default connect(
-  mapStateToProps,
-  null
+    mapStateToProps,
+    null
 )(Home);

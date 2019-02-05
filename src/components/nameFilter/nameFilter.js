@@ -14,71 +14,71 @@ import {
 
 class NameFilter extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.search = this.search.bind(this);
     }
-    
-    search(e){
+
+    search(e) {
         e.preventDefault();
         const name = e.target.search.value;
-        if(name && name !== ' '){
+        if (name && name !== ' ') {
             const values = {
                 q: name,
                 type: this.props.typeFilter
             };
             this.props.setNameFilter(name.trim().toLowerCase());
             this.props.fetchSpotifyData(values);
-        }else{
+        } else {
             this.props.errorAlert('Para fazer uma pesquisa é necessário digitar um nome no campo!');
             setTimeout(() => this.props.clearAlert(), 3000);
         }
     }
 
     render() {
-      return (
-        <Fragment>
-            <Form id="form" className="form" onSubmit={this.search}>
-            <FormGroup className="space-top center">
-                <Label for="search" hidden>Procurar</Label>
-                <Input className="input" type="text" name="search" id="search" placeholder="Procurar por nome" />
-                <Button type="submit" className="search-button" color="success">
-                    <FontAwesomeIcon icon={faSearch} />
-                </Button>
-            </FormGroup>
-            </Form>
-        </Fragment>
-      );
+        return (
+            <Fragment>
+                <Form id="form" className="form" onSubmit={this.search}>
+                    <FormGroup className="space-top center">
+                        <Label for="search" hidden>Procurar</Label>
+                        <Input className="input" type="text" name="search" id="search" placeholder="Procurar por nome" />
+                        <Button type="submit" className="search-button" color="success">
+                            <FontAwesomeIcon icon={faSearch} />
+                        </Button>
+                    </FormGroup>
+                </Form>
+            </Fragment>
+        );
     }
-  }
+}
 
 
 const mapStateToProps = state => {
     return {
-      fetchSpotifyData,
-      setNameFilter,
-      typeFilter: state.typeFilterReducer
+        fetchSpotifyData,
+        setNameFilter,
+        typeFilter: state.typeFilterReducer
     };
-  };
+};
 
-  NameFilter.propTypes = {
+NameFilter.propTypes = {
     typeFilter: PropTypes.string,
     fetchSpotifyData: PropTypes.func,
     setNameFilter: PropTypes.func,
     errorAlert: PropTypes.func,
     clearAlert: PropTypes.func
-  };
-  
-  const mapDispatchToProps = (dispatch) => {
+};
+
+const mapDispatchToProps = (dispatch) => {
     return {
-      fetchSpotifyData: (params) => dispatch(fetchSpotifyData(params)),
-      setNameFilter: (name) => dispatch(setNameFilter(name)),
-      errorAlert: (message) => dispatch(errorAlert(message)),
-      clearAlert: () => dispatch(clearAlert())
+        fetchSpotifyData: (params) => dispatch(fetchSpotifyData(params)),
+        setNameFilter: (name) => dispatch(setNameFilter(name)),
+        errorAlert: (message) => dispatch(errorAlert(message)),
+        clearAlert: () => dispatch(clearAlert())
     };
-  };
-  
-  export default connect(
+};
+
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(NameFilter);
+)(NameFilter);
