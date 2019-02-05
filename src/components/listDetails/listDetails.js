@@ -5,6 +5,7 @@ import { fetchSpotifyAlbumsData, fetchSpotifyTracksData } from '../../actions/in
 import Header from '../header/header';
 import LatestsAlbumsList from '../latestsAlbumsList/latestsAlbumsList.js';
 import AlbumTracksList from '../AlbumTracksList/AlbumTracksList';
+import { Loading } from '../loading/loading';
 import { withRouter } from "react-router";
 import {
     Button,
@@ -28,15 +29,18 @@ class ListDetails extends React.Component {
     }
 
     render() {
-        const { spotifyAlbumsArtists, spotifyAlbumsTracks } = this.props;
+        const { spotifyAlbumsArtists, spotifyAlbumsTracks, loading } = this.props;
         return (
             <Fragment>
                 <Header />
                 <Container>
                     <Button className="buttonSpotify space-top" aria-label="botão de voltar" color="success" onClick={() => this.props.history.push(`/lista`)}>Voltar</Button>
                     <h1 className="center">{this.state.type === 'artist' ? 'Últimos 5 albums!' : 'Todas as Músicas'}</h1>
+                    <Loading loading={loading}/>
                     {
                         this.state.type
+                        &&
+                        !loading
                         &&
                         this.state.type === 'artist'
                         &&
@@ -44,6 +48,8 @@ class ListDetails extends React.Component {
                     }
                     {
                         this.state.type
+                        &&
+                        !loading
                         &&
                         this.state.type === 'album'
                         &&
@@ -60,7 +66,8 @@ const mapStateToProps = state => {
         fetchSpotifyAlbumsData,
         fetchSpotifyTracksData,
         spotifyAlbumsArtists: state.spotifyReducer,
-        spotifyAlbumsTracks: state.spotifyReducer
+        spotifyAlbumsTracks: state.spotifyReducer,
+        loading: state.loadingReducer
     };
 };
 
@@ -74,7 +81,8 @@ ListDetails.propTypes = {
     spotifyAlbumsTracks: PropTypes.oneOfType([
         PropTypes.object,
         PropTypes.array
-    ])
+    ]),
+    loading: PropTypes.bool
 };
 
 const mapDispatchToProps = (dispatch) => {

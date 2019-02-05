@@ -9,7 +9,7 @@ import {
     fetchSpotifyTracksData,
     errorTratament
 } from './spotify';
-import { FETCH_SPOTIFY_DATA, FETCH_SPOTIFY_DATA_ALBUMS, FETCH_SPOTIFY_DATA_TRACKS, ALERT_ERROR } from './types';
+import { FETCH_SPOTIFY_DATA, FETCH_SPOTIFY_DATA_ALBUMS, FETCH_SPOTIFY_DATA_TRACKS, ALERT_ERROR, SET_LOADING } from './types';
 import moxios from 'moxios';
 
 const middlewares = [thunk]
@@ -64,10 +64,11 @@ describe('actions', () => {
 
         const store = mockStore({})
 
-        const expectedPayload = [{
-            type: FETCH_SPOTIFY_DATA,
-            spotifyData: data
-        }]
+        const expectedPayload = [
+            { type: SET_LOADING, loading: true },
+            { type: FETCH_SPOTIFY_DATA, spotifyData: data},
+            { type: SET_LOADING, loading: false }
+        ]
 
         return store.dispatch(fetchSpotifyData({ q: 'test param' })).then(() => {
             expect(store.getActions()).toEqual(expectedPayload)
@@ -86,10 +87,11 @@ describe('actions', () => {
 
         const store = mockStore({})
 
-        const expectedPayloadError = {
-            "type": ALERT_ERROR,
-            "message": "Sua Sessão expirou, se autentique novamente!"
-        }
+        const expectedPayloadError = [
+            { type: SET_LOADING, loading: true },
+            { type: ALERT_ERROR, "message": "Sua Sessão expirou, se autentique novamente!"},
+            { type: SET_LOADING, loading: false }
+        ]
 
         return store.dispatch(fetchSpotifyData({ q: 'test param' })).then(() => {
         }).catch((error) => {
@@ -109,10 +111,11 @@ describe('actions', () => {
 
         const store = mockStore({})
 
-        const expectedPayload = [{
-            type: FETCH_SPOTIFY_DATA_ALBUMS,
-            spotifyAlbumsArtists: data
-        }]
+        const expectedPayload = [
+            { type: SET_LOADING, loading: true },
+            { type: FETCH_SPOTIFY_DATA_ALBUMS, spotifyAlbumsArtists: data},
+            { type: SET_LOADING, loading: false }
+        ]
 
         return store.dispatch(fetchSpotifyAlbumsData(123)).then(() => {
             expect(store.getActions()).toEqual(expectedPayload)
@@ -131,10 +134,11 @@ describe('actions', () => {
 
         const store = mockStore({})
 
-        const expectedPayloadError = {
-            "type": ALERT_ERROR,
-            "message": "Sua Sessão expirou, se autentique novamente!"
-        }
+        const expectedPayloadError = [
+            { type: SET_LOADING, loading: true },
+            { type : ALERT_ERROR, "message": "Sua Sessão expirou, se autentique novamente!"},
+            { type: SET_LOADING, loading: false }
+        ]    
 
         return store.dispatch(fetchSpotifyData(123)).then(() => {
         }).catch((error) => {
@@ -154,10 +158,11 @@ describe('actions', () => {
 
         const store = mockStore({})
 
-        const expectedPayload = [{
-            type: FETCH_SPOTIFY_DATA_TRACKS,
-            spotifyAlbumTracks: data
-        }]
+        const expectedPayload = [
+            { type: SET_LOADING, loading: true },
+            { type: FETCH_SPOTIFY_DATA_TRACKS, spotifyAlbumTracks: data},
+            { type: SET_LOADING, loading: false }
+        ]
 
         return store.dispatch(fetchSpotifyTracksData(123)).then(() => {
             expect(store.getActions()).toEqual(expectedPayload)
@@ -176,10 +181,11 @@ describe('actions', () => {
 
         const store = mockStore({})
 
-        const expectedPayloadError = {
-            "type": ALERT_ERROR,
-            "message": "Sua Sessão expirou, se autentique novamente!"
-        }
+        const expectedPayloadError = [
+            { type: SET_LOADING, loading: true },
+            {"type": ALERT_ERROR, "message": "Sua Sessão expirou, se autentique novamente!"},
+            { type: SET_LOADING, loading: false }
+        ]
 
         return store.dispatch(fetchSpotifyTracksData(123)).then(() => {
         }).catch((error) => {

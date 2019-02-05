@@ -1,5 +1,6 @@
 import { FETCH_SPOTIFY_DATA, FETCH_SPOTIFY_DATA_ALBUMS, FETCH_SPOTIFY_DATA_TRACKS } from './types';
 import { errorAlert } from './alert';
+import { setLoading } from './loading';
 import { urlSpotify } from '../utils/constants';
 import axios from 'axios';
 
@@ -38,15 +39,18 @@ export const errorTratament = (error, dispatch) => {
 
 export const fetchSpotifyData = (params) => {
     return (dispatch) => {
+        dispatch(setLoading(true));
 
         return axios.get(`${apiUrlSpotify}/search`, {
             params
         })
             .then((response) => {
-                dispatch(fetchData(response.data))
+                dispatch(fetchData(response.data));
+                dispatch(setLoading(false));
             })
             .catch((error) => {
                 dispatch(errorTratament(error));
+                dispatch(setLoading(false));
                 throw (error);
             });
     };
@@ -54,13 +58,16 @@ export const fetchSpotifyData = (params) => {
 
 export const fetchSpotifyAlbumsData = (id) => {
     return (dispatch) => {
+        dispatch(setLoading(true));
 
         return axios.get(`${apiUrlSpotify}/artists/${id}/albums`)
             .then((response) => {
-                dispatch(fetchAlbumsData(response.data))
+                dispatch(fetchAlbumsData(response.data));
+                dispatch(setLoading(false));
             })
             .catch((error) => {
                 dispatch(errorTratament(error));
+                dispatch(setLoading(false));
                 throw (error);
             });
     };
@@ -68,13 +75,16 @@ export const fetchSpotifyAlbumsData = (id) => {
 
 export const fetchSpotifyTracksData = (id) => {
     return (dispatch) => {
+        dispatch(setLoading(true));
 
         return axios.get(`${apiUrlSpotify}/albums/${id}/tracks`)
             .then((response) => {
-                dispatch(fetchTracksData(response.data))
+                dispatch(fetchTracksData(response.data));
+                dispatch(setLoading(false));
             })
             .catch((error) => {
                 dispatch(errorTratament(error));
+                dispatch(setLoading(false));
                 throw (error);
             });
     };
