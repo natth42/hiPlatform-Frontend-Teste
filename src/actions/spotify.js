@@ -27,12 +27,12 @@ export const fetchTracksData = (spotifyAlbumTracks) => {
   }
 };
 
-const errorTratament = (error, dispatch) => {
+export const errorTratament = (error, dispatch) => {
   if(error.response && error.response.status === 401){
-    dispatch(errorAlert('Sua Sessão expirou, se autentique novamente!'));
     window.location = urlSpotify;
+    return errorAlert('Sua Sessão expirou, se autentique novamente!');
   }else{
-    dispatch(errorAlert('Tivemos alguns problemas técnicos buscandos os dados que você queria. tente novamente mais tarde!'));
+    return errorAlert('Tivemos alguns problemas técnicos buscandos os dados que você queria. tente novamente mais tarde!');
   }
 }
 
@@ -46,7 +46,7 @@ export const fetchSpotifyData = (params) => {
         dispatch(fetchData(response.data))
       })
       .catch((error) => {
-        errorTratament(error, dispatch);
+        dispatch(errorTratament(error));
         throw(error);
       });
   };
@@ -60,7 +60,7 @@ export const fetchSpotifyAlbumsData = (id) => {
         dispatch(fetchAlbumsData(response.data))
       })
       .catch((error) => {
-        errorTratament(error, dispatch);
+        dispatch(errorTratament(error));
         throw(error);
       });
   };
@@ -74,7 +74,7 @@ export const fetchSpotifyTracksData = (id) => {
         dispatch(fetchTracksData(response.data))
       })
       .catch((error) => {
-        errorTratament(error, dispatch);
+        dispatch(errorTratament(error));
         throw(error);
       });
   };
