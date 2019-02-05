@@ -13,9 +13,9 @@ const LatestsAlbumsList = ({ albums }) => {
             <Table role="table" hover responsive>
                 <thead>
                     <tr>
-                        <th>Album</th>
-                        <th>Artistas</th>
-                        <th>Lançamento</th>
+                        <th aria-label="Album">Album</th>
+                        <th aria-label="Artistas">Artistas</th>
+                        <th aria-label="Lançamento">Lançamento</th>
                     </tr>
                 </thead>
                 <tbody>

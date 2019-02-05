@@ -18,7 +18,7 @@ class Filters extends React.Component {
                     alert.showMessage
                     &&
                     <div className="space-top space-sides center">
-                        <Alert color="danger">
+                        <Alert color="danger" aria-label={alert.message}>
                             {alert.message}
                         </Alert>
                     </div>

@@ -32,9 +32,9 @@ class Favorite extends React.Component {
             <Fragment>
                 {
                     item.favorite ?
-                        <FontAwesomeIcon icon={starSolid} color="yellow" onClick={() => this.setUnfavorite(item)} />
+                        <FontAwesomeIcon role="img" aria-label="emoji de estrela de cor amarela: clique para desfavoritar item" icon={starSolid} color="yellow" onClick={() => this.setUnfavorite(item)} />
                         :
-                        <FontAwesomeIcon icon={starRegular} onClick={() => this.setFavorite(item)} />
+                        <FontAwesomeIcon role="img" aria-label="emoji de estrela de cor preta: clique para favoritar item" icon={starRegular} onClick={() => this.setFavorite(item)} />
                 }
             </Fragment>
         );

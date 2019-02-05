@@ -9,7 +9,7 @@ const Header = () => {
         <Fragment>
             <Navbar className="header-space" color="light" light expand="md">
                 <NavbarBrand>
-                    <h4 id="title"><span role="img" aria-label="pequena estrela">👋</span> Hi Platform</h4>
+                    <h4 id="title" aria-label="Hi Platform"><span role="img" aria-label="emoji de mão acenando">👋</span> Hi Platform</h4>
                 </NavbarBrand>
             </Navbar>
         </Fragment>

@@ -14,7 +14,7 @@ const ListHeader = ({ type }) => {
                 &&
                 header.map((item) =>
                     (
-                        <th key={item}>
+                        <th key={item} aria-label={item}>
                             {item}
                         </th>
                     )

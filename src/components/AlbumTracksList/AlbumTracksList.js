@@ -10,9 +10,9 @@ const AlbumsTracksList = ({ tracks }) => {
             <Table role="table" hover responsive>
                 <thead>
                     <tr>
-                        <th>Música</th>
-                        <th>Artistas</th>
-                        <th>Duração</th>
+                        <th aria-label="Música">Música</th>
+                        <th aria-label="Artistas">Artistas</th>
+                        <th aria-label="Duração">Duração</th>
                     </tr>
                 </thead>
                 <tbody>

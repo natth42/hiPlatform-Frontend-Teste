@@ -41,8 +41,8 @@ class NameFilter extends React.Component {
                 <Form id="form" className="form" onSubmit={this.search}>
                     <FormGroup className="space-top center">
                         <Label for="search" hidden>Procurar</Label>
-                        <Input className="input" type="text" name="search" id="search" placeholder="Procurar por nome" />
-                        <Button type="submit" className="search-button" color="success">
+                        <Input aria-label="campo de busca, digite o que deseja procurar" className="input" type="text" name="search" id="search" placeholder="Procurar por nome" />
+                        <Button type="submit" aria-label="botão de busca" className="search-button" color="success">
                             <FontAwesomeIcon icon={faSearch} />
                         </Button>
                     </FormGroup>

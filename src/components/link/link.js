@@ -7,12 +7,13 @@ export const Link = ({
     onClick
 }) => {
     if (active) {
-        return <button className="btn-active space-sides link-active">{text}</button>;
+        return <button aria-label={`filtro atual: ${text}`} className="btn-active space-sides link-active">{text}</button>;
     }
 
     return (
         <button href='#'
             className="space-sides link"
+            aria-label={`selecionar filtro: ${text}`}
             onClick={e => {
                 e.preventDefault();
                 onClick();
