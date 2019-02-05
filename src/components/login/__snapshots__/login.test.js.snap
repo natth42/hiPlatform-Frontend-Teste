@@ -1,0 +1,310 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Login without crashing 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Login />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <Header />,
+        <Container
+          className="center title-position"
+          tag="div"
+        >
+          <h2
+            aria-label="Não achamos a página que está procurando!"
+            aria-level="1"
+            className="space-top"
+          >
+            Olá, para usar está aplicação é necessário entrar na sua conta do Spotify!
+          </h2>
+          <h4>
+            É rapidinho, é só clicar no botão abaixo.
+          </h4>
+        </Container>,
+        <Container
+          className="center"
+          tag="div"
+        >
+          <Button
+            className="buttonSpotify"
+            color="success"
+            onClick={[Function]}
+            tag="button"
+          >
+            Entrar na sua conta Spotify!
+          </Button>
+        </Container>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <h2
+              aria-label="Não achamos a página que está procurando!"
+              aria-level="1"
+              className="space-top"
+            >
+              Olá, para usar está aplicação é necessário entrar na sua conta do Spotify!
+            </h2>,
+            <h4>
+              É rapidinho, é só clicar no botão abaixo.
+            </h4>,
+          ],
+          "className": "center title-position",
+          "tag": "div",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "aria-label": "Não achamos a página que está procurando!",
+              "aria-level": "1",
+              "children": "Olá, para usar está aplicação é necessário entrar na sua conta do Spotify!",
+              "className": "space-top",
+            },
+            "ref": null,
+            "rendered": "Olá, para usar está aplicação é necessário entrar na sua conta do Spotify!",
+            "type": "h2",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "É rapidinho, é só clicar no botão abaixo.",
+            },
+            "ref": null,
+            "rendered": "É rapidinho, é só clicar no botão abaixo.",
+            "type": "h4",
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": <Button
+            className="buttonSpotify"
+            color="success"
+            onClick={[Function]}
+            tag="button"
+          >
+            Entrar na sua conta Spotify!
+          </Button>,
+          "className": "center",
+          "tag": "div",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Entrar na sua conta Spotify!",
+            "className": "buttonSpotify",
+            "color": "success",
+            "onClick": [Function],
+            "tag": "button",
+          },
+          "ref": null,
+          "rendered": "Entrar na sua conta Spotify!",
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <Header />,
+          <Container
+            className="center title-position"
+            tag="div"
+          >
+            <h2
+              aria-label="Não achamos a página que está procurando!"
+              aria-level="1"
+              className="space-top"
+            >
+              Olá, para usar está aplicação é necessário entrar na sua conta do Spotify!
+            </h2>
+            <h4>
+              É rapidinho, é só clicar no botão abaixo.
+            </h4>
+          </Container>,
+          <Container
+            className="center"
+            tag="div"
+          >
+            <Button
+              className="buttonSpotify"
+              color="success"
+              onClick={[Function]}
+              tag="button"
+            >
+              Entrar na sua conta Spotify!
+            </Button>
+          </Container>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <h2
+                aria-label="Não achamos a página que está procurando!"
+                aria-level="1"
+                className="space-top"
+              >
+                Olá, para usar está aplicação é necessário entrar na sua conta do Spotify!
+              </h2>,
+              <h4>
+                É rapidinho, é só clicar no botão abaixo.
+              </h4>,
+            ],
+            "className": "center title-position",
+            "tag": "div",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "aria-label": "Não achamos a página que está procurando!",
+                "aria-level": "1",
+                "children": "Olá, para usar está aplicação é necessário entrar na sua conta do Spotify!",
+                "className": "space-top",
+              },
+              "ref": null,
+              "rendered": "Olá, para usar está aplicação é necessário entrar na sua conta do Spotify!",
+              "type": "h2",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "É rapidinho, é só clicar no botão abaixo.",
+              },
+              "ref": null,
+              "rendered": "É rapidinho, é só clicar no botão abaixo.",
+              "type": "h4",
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <Button
+              className="buttonSpotify"
+              color="success"
+              onClick={[Function]}
+              tag="button"
+            >
+              Entrar na sua conta Spotify!
+            </Button>,
+            "className": "center",
+            "tag": "div",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Entrar na sua conta Spotify!",
+              "className": "buttonSpotify",
+              "color": "success",
+              "onClick": [Function],
+              "tag": "button",
+            },
+            "ref": null,
+            "rendered": "Entrar na sua conta Spotify!",
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

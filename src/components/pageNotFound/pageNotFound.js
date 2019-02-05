@@ -3,6 +3,7 @@ import { Container } from 'reactstrap';
 import Header from '../header/header';
 
 const PageNotFound = () => {
+    document.title = "Página não encontrada";
     return (
         <Fragment>
         <Header />

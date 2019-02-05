@@ -38,7 +38,7 @@ class NameFilter extends React.Component {
     render() {
       return (
         <Fragment>
-            <Form className="form" onSubmit={this.search}>
+            <Form id="form" className="form" onSubmit={this.search}>
             <FormGroup className="space-top center">
                 <Label for="search" hidden>Procurar</Label>
                 <Input className="input" type="text" name="search" id="search" placeholder="Procurar por nome" />

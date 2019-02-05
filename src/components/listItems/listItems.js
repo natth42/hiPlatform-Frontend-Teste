@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { formatTime } from '../../utils/formatTime';
+import Favorite from '../favorite/favorite';
 import {
     Container,
     Row,
@@ -8,34 +9,16 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
-import { setFavoriteItem, setUnfavoriteItem } from '../../actions/index';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar as starRegular } from '@fortawesome/free-regular-svg-icons';
-import { faStar as starSolid } from '@fortawesome/free-solid-svg-icons';
 
 class ListItems extends React.Component {
     constructor(props){
         super(props);
         this.goToListDetails = this.goToListDetails.bind(this);
-        this.setFavorite = this.setFavorite.bind(this);
-        this.setUnfavorite = this.setUnfavorite.bind(this);
         this.verifyFavorites = this.verifyFavorites.bind(this);
     }
     
     goToListDetails(id){
         this.props.history.push(`/lista/detalhes/${this.props.typeFilter}/${id}`);
-    }
-
-    setFavorite(item){
-        item.favorite = true;
-        this.forceUpdate();
-        this.props.setFavoriteItem(this.props.nameFilter, item);
-    }
-
-    setUnfavorite(item){
-        item.favorite = false;
-        this.forceUpdate();
-        this.props.setUnfavoriteItem(this.props.nameFilter, item);
     }
 
     verifyFavorites(items){
@@ -51,7 +34,7 @@ class ListItems extends React.Component {
     }
 
     render() {
-        const { typeFilter, spotifyData } = this.props;
+        const { typeFilter, spotifyData, nameFilter } = this.props;
         return (
         <Fragment>
             {
@@ -63,12 +46,7 @@ class ListItems extends React.Component {
                     (
                         <tr className="cursor" key={item.id}>
                             <td>
-                                {
-                                    item.favorite ?
-                                    <FontAwesomeIcon icon={starSolid} color="yellow" onClick={() => this.setUnfavorite(item)} />
-                                    :
-                                    <FontAwesomeIcon icon={starRegular} onClick={() => this.setFavorite(item)} />
-                                }
+                                <Favorite item={item} nameFilter={nameFilter} />
                             </td>
                             <td onClick={() => this.goToListDetails(item.id)}>
                                 <Container>
@@ -108,12 +86,7 @@ class ListItems extends React.Component {
                     (
                         <tr className="cursor" key={item.id}>
                         <td>
-                        {
-                            item.favorite ?
-                            <FontAwesomeIcon icon={starSolid} color="yellow" onClick={() => this.setUnfavorite(item)}/>
-                            :
-                            <FontAwesomeIcon icon={starRegular} onClick={() => this.setFavorite(item)} />
-                        }
+                        <Favorite item={item} nameFilter={nameFilter} />
                     </td>
                             <td onClick={() => this.goToListDetails(item.id)}>
                                 <Container>
@@ -156,12 +129,7 @@ class ListItems extends React.Component {
                     (
                         <tr key={item.id}>
                         <td className="cursor">
-                        {
-                            item.favorite ?
-                            <FontAwesomeIcon icon={starSolid} color="yellow" onClick={() => this.setUnfavorite(item)}/>
-                            :
-                            <FontAwesomeIcon icon={starRegular} onClick={() => this.setFavorite(item)} />
-                        }
+                        <Favorite item={item} nameFilter={nameFilter} />
                     </td>
                             <td>
                                 <Container>
@@ -199,9 +167,7 @@ const mapStateToProps = state => {
     return {
         typeFilter: state.typeFilterReducer,
         nameFilter: state.nameFilterReducer,
-        spotifyData: state.spotifyReducer,
-        setFavoriteItem,
-        setUnfavoriteItem
+        spotifyData: state.spotifyReducer
     };
 };
 
@@ -211,19 +177,10 @@ ListItems.propTypes = {
     spotifyData: PropTypes.oneOfType([
         PropTypes.object,
         PropTypes.array
-    ]),
-    setFavoriteItem: PropTypes.func,
-    setUnfavoriteItem: PropTypes.func
+    ])
 };
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        setFavoriteItem: (search, item) => dispatch(setFavoriteItem(search, item)),
-        setUnfavoriteItem: (search, item) => dispatch(setUnfavoriteItem(search, item))
-    };
-  };
 
 export default withRouter(connect(
     mapStateToProps,
-    mapDispatchToProps
+    null
 )(ListItems));

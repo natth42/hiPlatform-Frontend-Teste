@@ -1,0 +1,206 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ListHeader without crashing 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ListHeader />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <th>
+          #
+        </th>,
+        <th>
+          música
+        </th>,
+        <th>
+          artista
+        </th>,
+        <th>
+          album
+        </th>,
+        <th>
+          duração
+        </th>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "#",
+        "nodeType": "host",
+        "props": Object {
+          "children": "#",
+        },
+        "ref": null,
+        "rendered": "#",
+        "type": "th",
+      },
+      Object {
+        "instance": null,
+        "key": "música",
+        "nodeType": "host",
+        "props": Object {
+          "children": "música",
+        },
+        "ref": null,
+        "rendered": "música",
+        "type": "th",
+      },
+      Object {
+        "instance": null,
+        "key": "artista",
+        "nodeType": "host",
+        "props": Object {
+          "children": "artista",
+        },
+        "ref": null,
+        "rendered": "artista",
+        "type": "th",
+      },
+      Object {
+        "instance": null,
+        "key": "album",
+        "nodeType": "host",
+        "props": Object {
+          "children": "album",
+        },
+        "ref": null,
+        "rendered": "album",
+        "type": "th",
+      },
+      Object {
+        "instance": null,
+        "key": "duração",
+        "nodeType": "host",
+        "props": Object {
+          "children": "duração",
+        },
+        "ref": null,
+        "rendered": "duração",
+        "type": "th",
+      },
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <th>
+            #
+          </th>,
+          <th>
+            música
+          </th>,
+          <th>
+            artista
+          </th>,
+          <th>
+            album
+          </th>,
+          <th>
+            duração
+          </th>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "#",
+          "nodeType": "host",
+          "props": Object {
+            "children": "#",
+          },
+          "ref": null,
+          "rendered": "#",
+          "type": "th",
+        },
+        Object {
+          "instance": null,
+          "key": "música",
+          "nodeType": "host",
+          "props": Object {
+            "children": "música",
+          },
+          "ref": null,
+          "rendered": "música",
+          "type": "th",
+        },
+        Object {
+          "instance": null,
+          "key": "artista",
+          "nodeType": "host",
+          "props": Object {
+            "children": "artista",
+          },
+          "ref": null,
+          "rendered": "artista",
+          "type": "th",
+        },
+        Object {
+          "instance": null,
+          "key": "album",
+          "nodeType": "host",
+          "props": Object {
+            "children": "album",
+          },
+          "ref": null,
+          "rendered": "album",
+          "type": "th",
+        },
+        Object {
+          "instance": null,
+          "key": "duração",
+          "nodeType": "host",
+          "props": Object {
+            "children": "duração",
+          },
+          "ref": null,
+          "rendered": "duração",
+          "type": "th",
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

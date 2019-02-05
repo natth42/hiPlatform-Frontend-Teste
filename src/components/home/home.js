@@ -10,6 +10,7 @@ import {
 
 class Home extends React.Component {
   componentDidMount() {
+    document.title = "Home"
     const { token } = this.props;
     if(!token){
       this.props.history.push("/login");

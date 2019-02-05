@@ -33,9 +33,8 @@ export const setUnfavoriteItem = (search, item) => {
         let searchString = search.toString();
         if(searchItem){
             const favorites = searchItem.map((favoriteId) => {
-              if (favoriteId !== item.id) {
+              if (favoriteId !== item.id)
                 return favoriteId;
-              }
             });
             localStorage.setItem(searchString, JSON.stringify(favorites));
         }else{

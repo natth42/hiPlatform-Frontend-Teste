@@ -34,7 +34,7 @@ class ListDetails extends React.Component {
         <Header />
         <Container> 
             <Button className="buttonSpotify space-top" color="success" onClick={() => this.props.history.push(`/lista`)}>Voltar</Button>
-            <h1 className="center">{this.state.type === 'artist' ? 'Últimos 5 albums!' : 'Todas as Músicas'} 🔥</h1>
+            <h1 className="center">{this.state.type === 'artist' ? 'Últimos 5 albums!' : 'Todas as Músicas'}</h1>
           {
             this.state.type
             &&

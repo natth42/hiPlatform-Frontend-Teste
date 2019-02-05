@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders PageNotFound without crashing 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PageNotFound />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <Header />,
+        <Container
+          className="center"
+          tag="div"
+        >
+          <h1
+            aria-label="Não achamos a página que está procurando!"
+            aria-level="1"
+            className="space-top"
+          >
+            Não achamos a página que está procurando!
+            <span
+              aria-label="carinha triste"
+              role="img"
+            >
+              😟
+            </span>
+          </h1>
+        </Container>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": <h1
+            aria-label="Não achamos a página que está procurando!"
+            aria-level="1"
+            className="space-top"
+          >
+            Não achamos a página que está procurando!
+            <span
+              aria-label="carinha triste"
+              role="img"
+            >
+              😟
+            </span>
+          </h1>,
+          "className": "center",
+          "tag": "div",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "aria-label": "Não achamos a página que está procurando!",
+            "aria-level": "1",
+            "children": Array [
+              "Não achamos a página que está procurando!",
+              <span
+                aria-label="carinha triste"
+                role="img"
+              >
+                😟
+              </span>,
+            ],
+            "className": "space-top",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Não achamos a página que está procurando!",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "aria-label": "carinha triste",
+                "children": "😟",
+                "role": "img",
+              },
+              "ref": null,
+              "rendered": "😟",
+              "type": "span",
+            },
+          ],
+          "type": "h1",
+        },
+        "type": [Function],
+      },
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <Header />,
+          <Container
+            className="center"
+            tag="div"
+          >
+            <h1
+              aria-label="Não achamos a página que está procurando!"
+              aria-level="1"
+              className="space-top"
+            >
+              Não achamos a página que está procurando!
+              <span
+                aria-label="carinha triste"
+                role="img"
+              >
+                😟
+              </span>
+            </h1>
+          </Container>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <h1
+              aria-label="Não achamos a página que está procurando!"
+              aria-level="1"
+              className="space-top"
+            >
+              Não achamos a página que está procurando!
+              <span
+                aria-label="carinha triste"
+                role="img"
+              >
+                😟
+              </span>
+            </h1>,
+            "className": "center",
+            "tag": "div",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "aria-label": "Não achamos a página que está procurando!",
+              "aria-level": "1",
+              "children": Array [
+                "Não achamos a página que está procurando!",
+                <span
+                  aria-label="carinha triste"
+                  role="img"
+                >
+                  😟
+                </span>,
+              ],
+              "className": "space-top",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Não achamos a página que está procurando!",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "aria-label": "carinha triste",
+                  "children": "😟",
+                  "role": "img",
+                },
+                "ref": null,
+                "rendered": "😟",
+                "type": "span",
+              },
+            ],
+            "type": "h1",
+          },
+          "type": [Function],
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

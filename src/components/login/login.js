@@ -6,6 +6,7 @@ import './login.scss';
 
 const Login = () => {
     localStorage.clear();
+    document.title = "Login"
     return (
         <Fragment>
         <Header />
