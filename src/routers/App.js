@@ -9,8 +9,6 @@ import Home from '../components/home/home';
 import ListDetails from '../components/listDetails/listDetails';
 import PageNoteFound from '../components/pageNotFound/pageNotFound';
 
-import './App.scss';
-
 class AppRouter extends React.Component {
     componentDidMount() {
         document.documentElement.lang = 'pt-BR';

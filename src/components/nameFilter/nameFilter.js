@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchSpotifyData, errorAlert, clearAlert, setNameFilter } from '../../actions/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import './nameFilter.scss';
 import {
     Form,
     FormGroup,

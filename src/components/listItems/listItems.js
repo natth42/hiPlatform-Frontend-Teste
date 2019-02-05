@@ -2,7 +2,11 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { formatTime } from '../../utils/formatTime';
 import Favorite from '../favorite/favorite';
+import './listItems.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCompactDisc } from '@fortawesome/free-solid-svg-icons';
 import {
+    Badge,
     Container,
     Row,
     Col
@@ -53,9 +57,10 @@ class ListItems extends React.Component {
                                         <Row>
                                             <Col xs="auto">
                                                 {
-                                                    item.images[0]
-                                                    &&
+                                                    item.images.length > 0 ?
                                                     <img src={item.images[0].url} alt="" height="64" width="64" />
+                                                    :
+                                                    <FontAwesomeIcon icon={faCompactDisc} className="iconDisc" />
                                                 }
                                             </Col>
                                             <Col>
@@ -70,7 +75,13 @@ class ListItems extends React.Component {
                                     }
                                 </td>
                                 <td>{
-                                    item.popularity >= 80 ? 'Hot' : item.popularity >= 60 && item.popularity <= 79 ? 'Cool' : item.popularity >= 30 && item.popularity <= 59 ? 'Regular' : 'Underground'
+                                    item.popularity >= 80 ? 
+                                    <Badge color="success" pill>Hot</Badge> : 
+                                        item.popularity >= 60 && item.popularity <= 79 ? 
+                                        <Badge color="success" pill>Cool</Badge>  : 
+                                        item.popularity >= 30 && item.popularity <= 59 ? 
+                                        <Badge color="success" pill>Regular</Badge> :
+                                        <Badge color="success" pill>Underground</Badge>
                                 }</td>
                             </tr>
                         )
@@ -93,9 +104,10 @@ class ListItems extends React.Component {
                                         <Row>
                                             <Col xs="auto">
                                                 {
-                                                    item.images[0]
-                                                    &&
+                                                    item.images.length > 0 ?
                                                     <img src={item.images[0].url} alt="" height="64" width="64" />
+                                                    :
+                                                    <FontAwesomeIcon icon={faCompactDisc} className="iconDisc" />
                                                 }
                                             </Col>
                                             <Col>
@@ -136,9 +148,10 @@ class ListItems extends React.Component {
                                         <Row>
                                             <Col xs="auto">
                                                 {
-                                                    item.album.images[0]
-                                                    &&
+                                                    item.album.images.length > 0 ?
                                                     <img src={item.album.images[0].url} alt="" height="64" width="64" />
+                                                    :
+                                                    <FontAwesomeIcon icon={faCompactDisc} className="iconDisc" />
                                                 }
                                             </Col>
                                             <Col>

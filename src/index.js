@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 
 import reducers from './reducers/reducers';
 import { getToken } from './actions/index';
+import './index.scss';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
