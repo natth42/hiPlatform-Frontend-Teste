@@ -22,8 +22,8 @@ Para a construção foi utilizado:
 
 A construção da aplicação foi feita com base no create-react-app por oferecer maior agilidade para se começar um projeto e a escolha das ferramentas foram feitas levando em consideração adesão da comunidade, facilidade de implementação, agilidade no desenvolvimento e recomendação do time de desenvolvimento do React.
 
-###Rodar aplicaçao Local
+### Rodar aplicaçao Local
 Rode o comando 'npm start' no seu terminal para rodar o projeto na sua máquina e abra o seu navegador no endereço:  http://localhost:3000 
 
-###Rodar testes de sua aplicação
+### Rodar testes de sua aplicação
 Rode o comando 'npm test'
