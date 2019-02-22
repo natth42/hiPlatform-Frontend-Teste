@@ -4,6 +4,8 @@ import { formatTime } from '../../utils/formatTime';
 import Tag from '../tag/tag';
 import Favorite from '../favorite/favorite';
 import { ImageNameItem } from '../imageNameItem/imageNameItem';
+import { verifySpotifySavedData } from '../../actions/index';
+import { loadState } from '../../utils/localStorage';
 import './listItems.scss';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
@@ -15,12 +17,17 @@ class ListItems extends React.Component {
         this.verifyFavorites = this.verifyFavorites.bind(this);
     }
 
+    componentDidMount(){
+        if(this.props.spotifyData !== undefined)
+            this.props.verifySpotifySavedData();
+    }
+
     goToListDetails(id) {
         this.props.history.push(`/lista/detalhes/${this.props.typeFilter}/${id}`);
     }
 
     verifyFavorites(items) {
-        let searchItem = JSON.parse(localStorage.getItem(this.props.nameFilter));
+        let searchItem = loadState(this.props.nameFilter);
         if (!searchItem) {
             return items;
         }
@@ -32,7 +39,7 @@ class ListItems extends React.Component {
     }
 
     render() {
-        const { typeFilter, spotifyData, nameFilter } = this.props;
+        const { typeFilter, spotifyData } = this.props;
         return (
             <Fragment>
                 {
@@ -44,7 +51,7 @@ class ListItems extends React.Component {
                         (
                             <tr className="cursor" key={item.id}>
                                 <td>
-                                    <Favorite item={item} nameFilter={nameFilter} />
+                                    <Favorite item={item} />
                                 </td>
                                 <td onClick={() => this.goToListDetails(item.id)}>
                                     <ImageNameItem name={item.name} images={item.images} />
@@ -71,7 +78,7 @@ class ListItems extends React.Component {
                         (
                             <tr className="cursor" key={item.id}>
                                 <td>
-                                    <Favorite item={item} nameFilter={nameFilter} />
+                                    <Favorite item={item} />
                                 </td>
                                 <td onClick={() => this.goToListDetails(item.id)}>
                                     <ImageNameItem name={item.name} images={item.images} />
@@ -101,7 +108,7 @@ class ListItems extends React.Component {
                         (
                             <tr key={item.id}>
                                 <td className="cursor">
-                                    <Favorite item={item} nameFilter={nameFilter} />
+                                    <Favorite item={item} />
                                 </td>
                                 <td>
                                     <ImageNameItem name={item.name} images={item.album.images} />
@@ -125,21 +132,21 @@ class ListItems extends React.Component {
 const mapStateToProps = state => {
     return {
         typeFilter: state.typeFilterReducer,
-        nameFilter: state.nameFilterReducer,
-        spotifyData: state.spotifyReducer
+        spotifyData: state.spotifyReducer,
+        verifySpotifySavedData
     };
 };
 
 ListItems.propTypes = {
     typeFilter: PropTypes.string,
-    nameFilter: PropTypes.string,
     spotifyData: PropTypes.oneOfType([
         PropTypes.object,
         PropTypes.array
-    ])
+    ]),
+    verifySpotifySavedData: PropTypes.func
 };
 
 export default withRouter(connect(
     mapStateToProps,
-    null
+    { verifySpotifySavedData }
 )(ListItems));

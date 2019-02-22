@@ -1,4 +1,4 @@
-import { FETCH_SPOTIFY_DATA, FETCH_SPOTIFY_DATA_ALBUMS, FETCH_SPOTIFY_DATA_TRACKS } from '../actions/types';
+import { FETCH_SPOTIFY_DATA, SET_SAVED_SPOTIFY_DATA, FETCH_SPOTIFY_DATA_ALBUMS, FETCH_SPOTIFY_DATA_TRACKS } from '../actions/types';
 
 export function spotifyReducer(state = [], action) {
     switch (action.type) {
@@ -10,6 +10,9 @@ export function spotifyReducer(state = [], action) {
         }
         case FETCH_SPOTIFY_DATA_TRACKS: {
             return action.spotifyAlbumTracks;
+        }
+        case SET_SAVED_SPOTIFY_DATA: {
+            return action.spotifyData;
         }
         default:
             return state;

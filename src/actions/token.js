@@ -1,12 +1,9 @@
 import { GET_TOKEN } from './types';
 
-export const tokenResponse = (token) => {
-    return {
+export const tokenResponse = (token) => ({
         type: GET_TOKEN,
         token
-    }
-};
-
+});
 
 export const getToken = () => {
     return (dispatch) => {

@@ -44,7 +44,8 @@ class Favorite extends React.Component {
 const mapStateToProps = state => {
     return {
         setFavoriteItem,
-        setUnfavoriteItem
+        setUnfavoriteItem,
+        nameFilter: state.nameFilterReducer
     };
 };
 

@@ -1,32 +1,32 @@
-import { FETCH_SPOTIFY_DATA, FETCH_SPOTIFY_DATA_ALBUMS, FETCH_SPOTIFY_DATA_TRACKS } from './types';
+import { FETCH_SPOTIFY_DATA, FETCH_SPOTIFY_DATA_ALBUMS, FETCH_SPOTIFY_DATA_TRACKS, SET_SAVED_SPOTIFY_DATA } from './types';
 import { errorAlert } from './alert';
 import { setLoading } from './loading';
+import { setFilterType } from './typeFilter';
 import { urlSpotify } from '../utils/constants';
+import { loadState, saveState } from '../utils/localStorage';
 import axios from 'axios';
 
 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
 const apiUrlSpotify = 'https://api.spotify.com/v1';
 
-export const fetchData = (spotifyData) => {
-    return {
+export const fetchData = (spotifyData) => ({
         type: FETCH_SPOTIFY_DATA,
         spotifyData
-    }
-};
+});
 
-export const fetchAlbumsData = (spotifyAlbumsArtists) => {
-    return {
+export const setSpotifyData = (spotifyData) => ({
+    type: SET_SAVED_SPOTIFY_DATA, spotifyData
+});
+
+export const fetchAlbumsData = (spotifyAlbumsArtists) => ({
         type: FETCH_SPOTIFY_DATA_ALBUMS,
         spotifyAlbumsArtists
-    }
-};
+});
 
-export const fetchTracksData = (spotifyAlbumTracks) => {
-    return {
+export const fetchTracksData = (spotifyAlbumTracks) => ({
         type: FETCH_SPOTIFY_DATA_TRACKS,
         spotifyAlbumTracks
-    }
-};
+});
 
 export const errorTratament = (error, dispatch) => {
     if (error.response && error.response.status === 401) {
@@ -34,6 +34,20 @@ export const errorTratament = (error, dispatch) => {
         return errorAlert('Sua Sessão expirou, se autentique novamente!');
     } else {
         return errorAlert('Tivemos alguns problemas técnicos buscandos os dados que você queria. tente novamente mais tarde!');
+    }
+}
+
+export const verifySpotifySavedData = () => {
+    return (dispatch) => {
+        const savedState = loadState('spotifyData');
+        const savedFilter = loadState('filter');
+        if(savedState !== undefined){
+            if(savedFilter !== undefined)
+                dispatch(setFilterType(savedFilter));
+            return dispatch(setSpotifyData(savedState, 'spotifyData'));
+        }else{
+            return dispatch(setSpotifyData([]));  
+        }      
     }
 }
 
@@ -46,6 +60,7 @@ export const fetchSpotifyData = (params) => {
         })
             .then((response) => {
                 dispatch(fetchData(response.data));
+                saveState(response.data, 'spotifyData');
                 dispatch(setLoading(false));
             })
             .catch((error) => {

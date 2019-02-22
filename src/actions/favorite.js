@@ -1,27 +1,26 @@
 import { SET_FAVORITE, SET_UNFAVORITE } from './types';
+import { loadState, saveState } from '../utils/localStorage';
 
-export const setFavorite = (favoriteItem) => {
-    return {
+export const setFavorite = (favoriteItem) => ({
         type: SET_FAVORITE,
         favoriteItem
-    }
-};
+});
 
-export const setUnfavorite = (unfavoriteItem) => {
-    return {
+export const setUnfavorite = (unfavoriteItem) => ({
         type: SET_UNFAVORITE,
         unfavoriteItem
-    }
-};
+});
 
 export const setFavoriteItem = (search, item) => {
     return (dispatch) => {
-        let searchItem = JSON.parse(localStorage.getItem(search));
+        console.log(search, 'search');
+        console.log(item, 'item');
+        let searchItem = loadState(search);
         let searchString = search.toString();
         if (searchItem) {
-            localStorage.setItem(searchString, JSON.stringify([...searchItem, item.id]));
+            saveState([...searchItem, item.id], searchString);
         } else {
-            localStorage.setItem(searchString, JSON.stringify([item.id]));
+            saveState([item.id], searchString);
         }
         dispatch(setFavorite(item))
     };
@@ -29,16 +28,16 @@ export const setFavoriteItem = (search, item) => {
 
 export const setUnfavoriteItem = (search, item) => {
     return (dispatch) => {
-        let searchItem = JSON.parse(localStorage.getItem(search.trim().toLowerCase()));
+        let searchItem = loadState(search.trim().toLowerCase());
         let searchString = search.toString();
         if (searchItem) {
             const favorites = searchItem.map((favoriteId) => {
                 if (favoriteId !== item.id)
                     return favoriteId;
             });
-            localStorage.setItem(searchString, JSON.stringify(favorites));
+            saveState(favorites, searchString);
         } else {
-            localStorage.setItem(searchString, JSON.stringify([]));
+            saveState([], searchString);
         }
         dispatch(setUnfavorite(item));
     };
