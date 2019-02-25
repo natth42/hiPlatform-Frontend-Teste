@@ -56,14 +56,7 @@ Favorite.propTypes = {
     nameFilter: PropTypes.string
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        setFavoriteItem: (search, item) => dispatch(setFavoriteItem(search, item)),
-        setUnfavoriteItem: (search, item) => dispatch(setUnfavoriteItem(search, item))
-    };
-};
-
 export default withRouter(connect(
     mapStateToProps,
-    mapDispatchToProps
+    { setFavoriteItem, setUnfavoriteItem }
 )(Favorite));

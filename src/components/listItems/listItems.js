@@ -132,6 +132,7 @@ class ListItems extends React.Component {
 const mapStateToProps = state => {
     return {
         typeFilter: state.typeFilterReducer,
+        nameFilter: state.nameFilterReducer,
         spotifyData: state.spotifyReducer,
         verifySpotifySavedData
     };
@@ -139,6 +140,7 @@ const mapStateToProps = state => {
 
 ListItems.propTypes = {
     typeFilter: PropTypes.string,
+    nameFilter: PropTypes.string,
     spotifyData: PropTypes.oneOfType([
         PropTypes.object,
         PropTypes.array

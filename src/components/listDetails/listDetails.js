@@ -85,14 +85,7 @@ ListDetails.propTypes = {
     loading: PropTypes.bool
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchSpotifyAlbumsData: (id) => dispatch(fetchSpotifyAlbumsData(id)),
-        fetchSpotifyTracksData: (id) => dispatch(fetchSpotifyTracksData(id))
-    };
-};
-
 export default withRouter(connect(
     mapStateToProps,
-    mapDispatchToProps
+    { fetchSpotifyAlbumsData, fetchSpotifyTracksData }
 )(ListDetails));

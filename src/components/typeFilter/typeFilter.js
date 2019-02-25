@@ -43,13 +43,7 @@ TypeFilter.propTypes = {
     setFilterType: PropTypes.func
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        setFilterType: (filter) => dispatch(setFilterType(filter))
-    };
-};
-
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    { setFilterType }
 )(TypeFilter);
